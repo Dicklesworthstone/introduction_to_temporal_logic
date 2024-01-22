@@ -34,37 +34,35 @@ Understanding these operators is crucial because they form the syntax through wh
 
 Let's introduce some concrete examples of translating English statements into FOL, and then discuss the axioms and rules of inference of FOL, using them to prove more elaborate statements.
 
-
 ## First-order Logic Operators: Examples
 
-
-1. **Negation (**`**¬**`**)**:
-    - *English*: "It is not raining."
-    - *FOL*: ¬Raining
+1. **Negation (`¬`)**:
+   - *English*: "It is not raining."
+   - *FOL*: ¬Raining
     
-2. **Conjunction (**`**∧**`**)**:
-    - *English*: "It is raining and cold."
-    - *FOL*: Raining ∧ Cold
+2. **Conjunction (`∧`)**:
+   - *English*: "It is raining and cold."
+   - *FOL*: Raining ∧ Cold
     
-3. **Disjunction (**`**∨**`**)**:
-    - *English*: "It is either raining or snowing."
-    - *FOL*: Raining ∨ Snowing
+3. **Disjunction (`∨`)**:
+   - *English*: "It is either raining or snowing."
+   - *FOL*: Raining ∨ Snowing
     
-4. **Implication (**`**→**`**)**:
-    - *English*: "If it is raining, then the ground is wet."
-    - *FOL*: Raining → WetGround
+4. **Implication (`→`)**:
+   - *English*: "If it is raining, then the ground is wet."
+   - *FOL*: Raining → WetGround
     
-5. **Equivalence (**`**≡**`**)**:
-    - *English*: "It is necessary and sufficient for the ground to be wet that it is raining."
-    - *FOL*: WetGround ≡ Raining
+5. **Equivalence (`≡`)**:
+   - *English*: "It is necessary and sufficient for the ground to be wet that it is raining."
+   - *FOL*: WetGround ≡ Raining
     
-6. **Universal Quantifier (**`**∀**`**)**:
-    - *English*: "All birds can fly."
-    - *FOL*: ∀x(Bird(x) → CanFly(x))
+6. **Universal Quantifier (`∀`)**:
+   - *English*: "All birds can fly."
+   - *FOL*: ∀x(Bird(x) → CanFly(x))
     
-7. **Existential Quantifier (**`**∃**`**)**:
-    - *English*: "There is a bird that can sing."
-    - *FOL*: ∃x(Bird(x) ∧ CanSing(x))
+7. **Existential Quantifier (`∃`)**:
+   - *English*: "There is a bird that can sing."
+   - *FOL*: ∃x(Bird(x) ∧ CanSing(x))
 
 
 ## First-order Logic: Axioms
