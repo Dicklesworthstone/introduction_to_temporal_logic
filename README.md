@@ -123,7 +123,7 @@ A set of *axioms* is the starting point in a logical system that provides the gi
     - *English*: “If two terms are equal, then one can be substituted for the other in any predicate without changing the truth of the predicate.”
     - *Explanation*: This means if **x** equals **y**, and **P(x)** is true, then **P(y)** must also be true.
     
-- **Substitution for Functions**: Symbolically, it can be represented as:
+- **Substitution for Functions**:
     - *FOL*: **∀x∀y (x = y → f(x) = f(y))**
     - *English*: Similarly, if two terms are equal, one can be substituted for the other in any function, and the values of the function at those terms will be equal.
     - *Explanation*: This axiom is essential for functions in FOL, implying that functions are well-defined - if **x** equals **y**, then **f(x)** must equal **f(y)**.
