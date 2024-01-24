@@ -431,18 +431,20 @@ Let's use the temporal logic axioms to prove a simple statement about this probl
     - Therefore, it is logically impossible for all philosophers to eat simultaneously without violating the protocol.
 
 Let’s keep going with the same problem and try to apply the concepts and axioms of temporal logic to prove increasingly complex and interesting things about the dining philosophers. 
-
 First, let’s prove that a certain protocol ensures that no philosopher will starve. Starvation occurs when a philosopher is perpetually denied access to resources (in this case, forks), and thus can never eat. We'll use a protocol where a philosopher must pick up both forks at once or put down any fork they've picked up and wait before trying again.
 
 **Protocol**:
 
 - A philosopher must pick up both forks at once.
-- If unable to pick up both forks, the philosopher must put down any fork they have picked up and wait before trying again.
+- If unable to pick up both forks, the philosopher must put down any fork they have picked up.
+- After putting down a fork, the philosopher enters a waiting phase.
+- A philosopher can only leave the waiting phase and attempt to pick up the forks again after each of their adjacent philosophers has either started eating or entered and left the waiting phase once.
+
+(Note: the last rule ensures that a philosopher who is waiting will eventually get a turn to attempt to pick up the forks again. This rule prevents the scenario where a philosopher is perpetually stuck in a waiting loop, as it requires that their adjacent philosophers either eat or go through a waiting phase before the philosopher can try again.)
 
 Our goal is thus to prove the statement: *“Using the above protocol, no philosopher will starve."*
 
 **Formal Proof Using Temporal Logic**:
-
 
 1. **Temporal Universality of Propositions**:
     - **Application**: ∀t U(t, "A philosopher must have both forks to eat").
@@ -454,29 +456,26 @@ Our goal is thus to prove the statement: *“Using the above protocol, no philos
     - **Application**: U(t, "A philosopher is waiting") → ¬U(t, "The philosopher is eating").
     - **Interpretation**: If a philosopher is waiting at any given time, they are not eating at that time.
 4. **Temporal Equivalence of Propositions**:
-    - **Application**: Relate U(t1, "Philosopher A is waiting") to U(t2, "Philosopher B has access to forks") across different times.
-    - **Interpretation**: The status of one philosopher waiting is related to the fork availability for others at different times.
+   - **Application**: Relate U(t1, "Philosopher A is in the waiting phase") to U(t2, "Philosopher B and C, adjacent to A, have either eaten or waited") across different times.
+   - **Interpretation**: The state of Philosopher A being in the waiting phase is temporally linked to the eventual states of their adjacent philosophers B and C. This ensures that Philosopher A's waiting is contingent upon the eating or waiting of philosophers B and C. It is a necessary condition for Philosopher A to leave the waiting phase and attempt to eat again.
 5. **Uniform Realization Over Intervals**:
-    - **Application**: If U(δ(t, interval), "A philosopher is waiting"), then ∃t2 within δ(t, interval) where U(t2, "Forks become available").
-    - **Interpretation**: If a philosopher is waiting over an interval, there will be a moment within that interval when the forks they need become available.
-    
+    - **Application**: If U(δ(t, interval), "A philosopher is waiting"), then ∃t2 within δ(t, interval) where U(t2, "Adjacent philosophers have eaten or waited").
+    - **Interpretation**: If a philosopher is waiting over an interval, there will be a moment within that interval when either the forks they need become available or their adjacent philosophers have completed their eating or waiting phase.
 
 **Deductive Reasoning**:
 
 - **Initial Assumption**: Assume, for contradiction, that a philosopher can starve under this protocol.
 - **Contradiction Development**:
-    - Starvation implies perpetual waiting without eating.
-    - By protocol, a philosopher waits if and only if they cannot pick up both forks.
-    - When waiting, they are not eating (Temporal Realization of Implication).
+    - The development remains the same until the point of entering the waiting phase.
+    - After waiting, the philosopher can only attempt to pick up the forks again after each adjacent philosopher has either eaten or gone through a waiting phase.
 - **Contradiction Realization**:
-    - Forks are periodically released and become available (Uniform Realization Over Intervals).
-    - By Temporal Equivalence, there will be moments when adjacent philosophers are not eating, making forks available.
-    - Philosophers retry after waiting, so the waiting philosopher eventually has an opportunity to eat.
-- **Conclusion**:
-    - This contradicts the assumption of starvation.
-    - Therefore, under the given protocol, no philosopher will starve.
+    - The realization of forks becoming available is modified to include the new rule.
+    - The philosopher will have an opportunity to eat after adjacent philosophers have either eaten or waited.
+- **Conclusion**: 
+    - The assumption of starvation is contradicted.
+    - Under the given protocol with the modified rule, no philosopher will starve.
 
-This proof uses the temporal logic axioms to show that the protocol prevents starvation by ensuring that each philosopher eventually gets a turn to eat. The key here is the combination of enforced waiting and the requirement to pick up both forks at once, which ensures that forks are periodically made available and that each philosopher eventually gets to eat.
+This proof uses temporal logic axioms to demonstrate that the protocol prevents starvation by ensuring that each philosopher, after a waiting phase, gets an opportunity to eat. This is achieved by the introduction of a fairness mechanism where a waiting philosopher gets a turn after their adjacent philosophers have either eaten or completed their own waiting phase, thus addressing the concern of perpetual denial of resources.
 
 
 ----------
