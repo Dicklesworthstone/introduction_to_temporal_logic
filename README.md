@@ -281,7 +281,7 @@ So what kind of statements can we make using temporal logic? This is known as th
     - *Example*: **∀x(P(x))** meaning "For all **x**, **P(x)** is true."
     
 - **Formulas with Realization Operator U**:
-    - *Plain English*: A formula can be formed using the realization operator `**U**` with a term and a propositional variable.
+    - *Plain English*: A formula can be formed using the realization operator **U** with a term and a propositional variable.
     - *Example*: **U(t1, P)** meaning "Proposition **P** is realized at time **t1**."
     
 - **Negation of a Formula**:
