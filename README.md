@@ -396,7 +396,7 @@ Let's use the temporal logic axioms to prove a simple statement about this probl
 *“It is impossible for all philosophers to eat simultaneously without violating the protocol."*
 
 **Formal Proof Using Temporal Logic**:
-**
+
 
 1. **Axiom of Temporal Universality**:
     - **Application**: ∀t U(t, "Philosopher needs two forks to eat").
