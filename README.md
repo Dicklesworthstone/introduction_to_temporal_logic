@@ -2,7 +2,7 @@
 
 The first formal treatment of the ideas now known as temporal logic can be traced to the Polish logician [Jerzy Łoś](https://en.wikipedia.org/wiki/Jerzy_%C5%81o%C5%9B) in his 1947 master’s thesis, although some of the ideas he formalized go back much further. While these concepts were originally considered in the context of formal logical and analytical philosophy, by the 1970s, several researchers (including Amir Pnueli and Leslie Lamport) realized that temporal logic was a natural setting for the analysis of concurrent algorithms, allowing for rigorous proofs of correctness.
 
-Before diving into temporal logic, you should first have a basic understanding of First Order Logic (FOL), since temporal logic is really an extension of FOL. If you are already familiar with FOL, feel free to skip this section and go straight to the section on temporal logic. But if it has been a while since you last thought about these ideas, it will certainly make things clearer to have these basic concepts fresh in your mind first.
+Before diving into temporal logic, you should first have a basic understanding of First Order Logic (FOL), since temporal logic is really an extension of FOL (or at least, the version of temporal logic we will be discussing here is— there are other versions of it that are not). If you are already familiar with FOL, feel free to skip this section and go straight to the section on temporal logic. But if it has been a while since you last thought about these ideas, it will certainly make things clearer to have these basic concepts fresh in your mind first.
 
 ## First-order Logic Operators
 
